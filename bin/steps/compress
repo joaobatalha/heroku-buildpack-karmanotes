@@ -23,7 +23,5 @@ if [ ! "$DISABLE_COLLECTSTATIC" ]; then
         echo " !     Error running manage.py compress."
 
     echo
-
-
 fi
 
