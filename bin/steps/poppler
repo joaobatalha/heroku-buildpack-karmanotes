@@ -10,9 +10,9 @@ source $BIN_DIR/utils
 
 # Download and extract poppler into target vendor directory.
 pushd /app > /dev/null
-echo "Downloading prebuilt poppler"
+echo "-----> Downloading prebuilt poppler"
 curl -s -L -o tmp-poppler.tar.gz $VENDORED_POPPLER
-echo "Unpacked poppler"
+echo "-----> Unpacked poppler"
 tar -zxf tmp-poppler.tar.gz
 rm tmp-poppler.tar.gz
 popd > /dev/null

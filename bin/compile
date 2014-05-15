@@ -171,6 +171,20 @@ fi
 puts-step "Installing dependencies using Pip ($PIP_VERSION)"
 /app/.heroku/python/bin/pip install --use-mirrors -r requirements.txt --exists-action=w --src=./.heroku/src | cleanup | indent
 
+
+# Load enviornment variables in ENV_DIR into the
+# enviornment, because manage.py will need them
+# soon. The blacklisted variables will not be loaded.
+blacklist_regex=${3:-'^(PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH)$'}
+if [ -d "$ENV_DIR" ]; then
+  for e in $(ls $ENV_DIR); do
+    echo "$e" | grep -qvE "$blacklist_regex" &&
+    export "$e=$(cat $ENV_DIR/$e)"
+    :
+  done
+fi
+
+
 # Database migrations
 source $BIN_DIR/steps/syncdb
 

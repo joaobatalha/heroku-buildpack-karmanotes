@@ -10,9 +10,9 @@ source $BIN_DIR/utils
 
 # Download and extract fontforge into target vendor directory.
 pushd /app > /dev/null
-echo "Downloading prebuilt fontforge"
+echo "-----> Downloading prebuilt fontforge"
 curl -s -L -o tmp-fontforge.tar.gz $VENDORED_FONTFORGE
-echo "Unpacked fontforge"
+echo "-----> Unpacked fontforge"
 tar -zxf tmp-fontforge.tar.gz
 rm tmp-fontforge.tar.gz
 popd > /dev/null

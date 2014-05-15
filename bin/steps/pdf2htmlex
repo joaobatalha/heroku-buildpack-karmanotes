@@ -10,9 +10,9 @@ source $BIN_DIR/utils
 
 # Download and extract pdf2htmlEX into target vendor directory.
 pushd /app > /dev/null
-echo "Downloading prebuilt pdf2htmlEX"
+echo "-----> Downloading prebuilt pdf2htmlEX"
 curl -s -L -o tmp-pdf2htmlEX.tar.gz $VENDORED_PDF2HTMLEX
-echo "Unpacked pdf2htmlEX"
+echo "-----> Unpacked pdf2htmlEX"
 tar -zxf tmp-pdf2htmlEX.tar.gz
 rm tmp-pdf2htmlEX.tar.gz
 popd > /dev/null
