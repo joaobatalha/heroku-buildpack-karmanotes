@@ -157,6 +157,8 @@ source $BIN_DIR/steps/pylibmc
 # libffi support.
 source $BIN_DIR/steps/libffi
 
+source $BIN_DIR/steps/cmake
+
 # Install Mercurial if it appears to be required.
 if (grep -Fiq "hg+" requirements.txt) then
   /app/.heroku/python/bin/pip install --use-mirrors mercurial | cleanup | indent

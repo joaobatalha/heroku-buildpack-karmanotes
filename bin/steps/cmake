@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#
+# This script is invoked by [`bin/compile`](/).
+
+# The location of the pre-compiled libffi binary.
+VENDORED_CMAKE="https://s3.amazonaws.com/karmanotes-buildpack/cmake-2.8.12.2-karmanotes-heroku.tar.gz"
+VENDORED_PATH=/app/vendor/cmake
+
+# Syntax sugar.
+source $BIN_DIR/utils
+
+# Download and extract cmake into target vendor directory.
+pushd /app
+echo "Downloading prebuilt cmake"
+curl -s -L -o tmp-cmake.tar.gz $VENDORED_CMAKE
+echo "Unpacked cmake"
+tar -zxf tmp-cmake.tar.gz
+rm tmp-cmake.tar.gz
+popd
