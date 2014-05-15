@@ -2,9 +2,8 @@
 #
 # This script is invoked by [`bin/compile`](/).
 
-# The location of the pre-compiled libffi binary.
+# The location of the pre-compiled binary.
 VENDORED_CMAKE="https://s3.amazonaws.com/karmanotes-buildpack/cmake-2.8.12.2-karmanotes-heroku.tar.gz"
-VENDORED_PATH=/app/vendor/cmake
 
 # Syntax sugar.
 source $BIN_DIR/utils

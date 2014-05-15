@@ -158,6 +158,11 @@ source $BIN_DIR/steps/pylibmc
 source $BIN_DIR/steps/libffi
 
 source $BIN_DIR/steps/cmake
+source $BIN_DIR/steps/fontconfig
+source $BIN_DIR/steps/fontforge
+source $BIN_DIR/steps/libspiro
+source $BIN_DIR/steps/pdf2htmlex
+source $BIN_DIR/steps/poppler
 
 # Install Mercurial if it appears to be required.
 if (grep -Fiq "hg+" requirements.txt) then

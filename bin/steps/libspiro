@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#
+# This script is invoked by [`bin/compile`](/).
+
+# The location of the pre-compiled binary.
+VENDORED_LIBSPIRO="https://s3.amazonaws.com/karmanotes-buildpack/libspiro-0.2-karmanotes-heroku.tar.gz"
+
+# Syntax sugar.
+source $BIN_DIR/utils
+
+# Download and extract libspiro into target vendor directory.
+pushd /app
+echo "Downloading prebuilt libspiro"
+curl -s -L -o tmp-fontforge.tar.gz $VENDORED_LIBSPIRO
+echo "Unpacked libspiro"
+tar -zxf tmp-libspiro.tar.gz
+rm tmp-libspiro.tar.gz
+popd
