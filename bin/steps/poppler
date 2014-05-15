@@ -9,10 +9,12 @@ VENDORED_POPPLER="https://s3.amazonaws.com/karmanotes-buildpack/poppler-0.26.0-k
 source $BIN_DIR/utils
 
 # Download and extract poppler into target vendor directory.
-pushd /app
+pushd /app > /dev/null
 echo "Downloading prebuilt poppler"
 curl -s -L -o tmp-poppler.tar.gz $VENDORED_POPPLER
 echo "Unpacked poppler"
 tar -zxf tmp-poppler.tar.gz
 rm tmp-poppler.tar.gz
-popd
+popd > /dev/null
+
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/app/vendor/poppler/lib

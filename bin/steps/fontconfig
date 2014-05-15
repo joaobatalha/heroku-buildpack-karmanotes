@@ -9,10 +9,10 @@ VENDORED_FONTCONFIG="https://s3.amazonaws.com/karmanotes-buildpack/fontconfig-2.
 source $BIN_DIR/utils
 
 # Download and extract fontconfig into target vendor directory.
-pushd /app
+pushd /app > /dev/null
 echo "Downloading prebuilt fontconfig"
 curl -s -L -o tmp-fontconfig.tar.gz $VENDORED_FONTCONFIG
 echo "Unpacked fontconfig"
 tar -zxf tmp-fontconfig.tar.gz
 rm tmp-fontconfig.tar.gz
-popd
+popd > /dev/null

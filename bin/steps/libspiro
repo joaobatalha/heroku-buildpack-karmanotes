@@ -9,10 +9,10 @@ VENDORED_LIBSPIRO="https://s3.amazonaws.com/karmanotes-buildpack/libspiro-0.2-ka
 source $BIN_DIR/utils
 
 # Download and extract libspiro into target vendor directory.
-pushd /app
+pushd /app > /dev/null
 echo "Downloading prebuilt libspiro"
 curl -s -L -o tmp-libspiro.tar.gz $VENDORED_LIBSPIRO
 echo "Unpacked libspiro"
 tar -zxf tmp-libspiro.tar.gz
 rm tmp-libspiro.tar.gz
-popd
+popd > /dev/null

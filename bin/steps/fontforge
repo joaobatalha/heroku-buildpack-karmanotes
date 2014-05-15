@@ -9,10 +9,12 @@ VENDORED_FONTFORGE="https://s3.amazonaws.com/karmanotes-buildpack/fontforge-2012
 source $BIN_DIR/utils
 
 # Download and extract fontforge into target vendor directory.
-pushd /app
+pushd /app > /dev/null
 echo "Downloading prebuilt fontforge"
 curl -s -L -o tmp-fontforge.tar.gz $VENDORED_FONTFORGE
 echo "Unpacked fontforge"
 tar -zxf tmp-fontforge.tar.gz
 rm tmp-fontforge.tar.gz
-popd
+popd > /dev/null
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/app/vendor/fontforge/lib
