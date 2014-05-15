@@ -176,6 +176,9 @@ puts-step "Installing dependencies using Pip ($PIP_VERSION)"
 # enviornment, because manage.py will need them
 # soon. The blacklisted variables will not be loaded.
 blacklist_regex=${3:-'^(PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH)$'}
+puts-step "Load enviornment variables from app configuration"
+echo $ENV_DIR
+ls $ENV_DIR
 if [ -d "$ENV_DIR" ]; then
   for e in $(ls $ENV_DIR); do
     echo "$e" | grep -qvE "$blacklist_regex" &&
