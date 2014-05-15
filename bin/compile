@@ -157,9 +157,10 @@ source $BIN_DIR/steps/pylibmc
 # libffi support.
 source $BIN_DIR/steps/libffi
 
+# pdf2htmlEX support
 source $BIN_DIR/steps/fontforge
-source $BIN_DIR/steps/pdf2htmlex
 source $BIN_DIR/steps/poppler
+source $BIN_DIR/steps/pdf2htmlex
 
 # Install Mercurial if it appears to be required.
 if (grep -Fiq "hg+" requirements.txt) then
@@ -170,7 +171,11 @@ fi
 puts-step "Installing dependencies using Pip ($PIP_VERSION)"
 /app/.heroku/python/bin/pip install --use-mirrors -r requirements.txt --exists-action=w --src=./.heroku/src | cleanup | indent
 
+# Database migrations
+source $BIN_DIR/steps/syncdb
+
 # Django collectstatic support.
+source $BIN_DIR/steps/compress
 source $BIN_DIR/steps/collectstatic
 
 # ### Finalize
