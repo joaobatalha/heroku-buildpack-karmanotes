@@ -13,7 +13,7 @@ set +e
 
 
 echo "-----> Running database migrations"
-python $MANAGE_FILE help
+python $MANAGE_FILE syncdb --migrate --noinput  2>&1 | indent
 
 [ $? -ne 0 ] && {
     echo " !     Error running manage.py syncdb --migrate."

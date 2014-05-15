@@ -16,5 +16,3 @@ echo "-----> Unpacked pdf2htmlEX"
 tar -zxf tmp-pdf2htmlEX.tar.gz
 rm tmp-pdf2htmlEX.tar.gz
 popd > /dev/null
-
-export PATH=$PATH:/app/vendor/pdf2htmlEX/bin

@@ -177,8 +177,6 @@ puts-step "Installing dependencies using Pip ($PIP_VERSION)"
 # soon. The blacklisted variables will not be loaded.
 blacklist_regex=${3:-'^(PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH)$'}
 puts-step "Load enviornment variables from app configuration"
-echo $3
-ls $3
 env_dir=$3
 if [ -d "$env_dir" ]; then
   for e in $(ls $env_dir); do
@@ -200,11 +198,11 @@ source $BIN_DIR/steps/collectstatic
 #
 
 # Set context environment variables.
-set-env PATH '$HOME/.heroku/python/bin:$PATH'
+set-env PATH '$HOME/.heroku/python/bin:/app/vendor/pdf2htmlEX/bin:$PATH'
 set-env PYTHONUNBUFFERED true
 set-env PYTHONHOME /app/.heroku/python
 set-default-env LIBRARY_PATH /app/.heroku/vendor/lib
-set-default-env LD_LIBRARY_PATH /app/.heroku/vendor/lib:/app/vendor/libffi-3.0/lib
+set-default-env LD_LIBRARY_PATH /app/.heroku/vendor/lib:/app/vendor/libffi-3.0/lib:/app/vendor/poppler/lib:/app/vendor/fontforge/lib
 set-default-env LANG en_US.UTF-8
 set-default-env PYTHONHASHSEED random
 set-default-env PYTHONPATH /app/

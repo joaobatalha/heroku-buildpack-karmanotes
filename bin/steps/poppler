@@ -16,5 +16,3 @@ echo "-----> Unpacked poppler"
 tar -zxf tmp-poppler.tar.gz
 rm tmp-poppler.tar.gz
 popd > /dev/null
-
-LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/app/vendor/poppler/lib

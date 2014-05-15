@@ -17,4 +17,3 @@ tar -zxf tmp-fontforge.tar.gz
 rm tmp-fontforge.tar.gz
 popd > /dev/null
 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/app/vendor/fontforge/lib
