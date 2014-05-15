@@ -177,12 +177,13 @@ puts-step "Installing dependencies using Pip ($PIP_VERSION)"
 # soon. The blacklisted variables will not be loaded.
 blacklist_regex=${3:-'^(PATH|GIT_DIR|CPATH|CPPATH|LD_PRELOAD|LIBRARY_PATH)$'}
 puts-step "Load enviornment variables from app configuration"
-echo $ENV_DIR
-ls $ENV_DIR
-if [ -d "$ENV_DIR" ]; then
-  for e in $(ls $ENV_DIR); do
+echo $3
+ls $3
+env_dir=$3
+if [ -d "$env_dir" ]; then
+  for e in $(ls $env_dir); do
     echo "$e" | grep -qvE "$blacklist_regex" &&
-    export "$e=$(cat $ENV_DIR/$e)"
+    export "$e=$(cat $env_dir/$e)"
     :
   done
 fi
