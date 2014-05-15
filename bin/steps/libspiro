@@ -11,7 +11,7 @@ source $BIN_DIR/utils
 # Download and extract libspiro into target vendor directory.
 pushd /app
 echo "Downloading prebuilt libspiro"
-curl -s -L -o tmp-fontforge.tar.gz $VENDORED_LIBSPIRO
+curl -s -L -o tmp-libspiro.tar.gz $VENDORED_LIBSPIRO
 echo "Unpacked libspiro"
 tar -zxf tmp-libspiro.tar.gz
 rm tmp-libspiro.tar.gz
