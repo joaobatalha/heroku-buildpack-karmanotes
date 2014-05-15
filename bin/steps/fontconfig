@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#
+# This script is invoked by [`bin/compile`](/).
+
+# The location of the pre-compiled binary.
+VENDORED_FONTCONFIG="https://s3.amazonaws.com/karmanotes-buildpack/fontconfig-2.11.1-karmanotes-heroku.tar.gz"
+
+# Syntax sugar.
+source $BIN_DIR/utils
+
+# Download and extract fontconfig into target vendor directory.
+pushd /app
+echo "Downloading prebuilt fontconfig"
+curl -s -L -o tmp-fontconfig.tar.gz $VENDORED_FONTCONFIG
+echo "Unpacked fontconfig"
+tar -zxf tmp-fontconfig.tar.gz
+rm tmp-fontconfig.tar.gz
+popd
