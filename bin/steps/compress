@@ -17,7 +17,7 @@ if [ ! "$DISABLE_COLLECTSTATIC" ]; then
     set +e
 
     echo "-----> Compressing static files"
-    python $MANAGE_FILE compress  2>&1
+    python $MANAGE_FILE compress  2>&1 | indent
 
     [ $? -ne 0 ] && {
         echo " !     Error running manage.py compress."
