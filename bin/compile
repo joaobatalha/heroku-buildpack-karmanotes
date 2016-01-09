@@ -188,19 +188,19 @@ fi
 
 
 # Database migrations
-source $BIN_DIR/steps/syncdb
+# source $BIN_DIR/steps/syncdb
 
 # Django collectstatic support.
-source $BIN_DIR/steps/compress
-source $BIN_DIR/steps/collectstatic
+# source $BIN_DIR/steps/compress
+# source $BIN_DIR/steps/collectstatic
 
 # ### Finalize
 #
 
 # Set context environment variables.
 set-env PATH '$HOME/.heroku/python/bin:/app/vendor/pdf2htmlEX/bin:$PATH'
-set-env PYTHONUNBUFFERED true
-set-env PYTHONHOME /app/.heroku/python
+# set-env PYTHONUNBUFFERED true
+# set-env PYTHONHOME /app/.heroku/python
 set-default-env LIBRARY_PATH /app/.heroku/vendor/lib
 set-default-env LD_LIBRARY_PATH /app/.heroku/vendor/lib:/app/vendor/libffi-3.0/lib:/app/vendor/poppler/lib:/app/vendor/fontforge/lib
 set-default-env LANG en_US.UTF-8
