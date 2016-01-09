@@ -132,27 +132,27 @@ else
 fi
 
 # If Pip isn't up to date:
-if [ "$FRESH_PYTHON" ] || [[ ! $(pip --version) == *$PIP_VERSION* ]]; then
-  WORKING_DIR=$(pwd)
-
-  # Prepare it for the real world
-  puts-step "Installing Distribute ($DISTRIBUTE_VERSION)"
-  cd $ROOT_DIR/vendor/distribute-$DISTRIBUTE_VERSION/
-  python setup.py install &> /dev/null
-  cd $WORKING_DIR
-
-  puts-step "Installing Pip ($PIP_VERSION)"
-  cd $ROOT_DIR/vendor/pip-$PIP_VERSION/
-  python setup.py install &> /dev/null
-  cd $WORKING_DIR
-fi
+# if [ "$FRESH_PYTHON" ] || [[ ! $(pip --version) == *$PIP_VERSION* ]]; then
+#   WORKING_DIR=$(pwd)
+#
+#   # Prepare it for the real world
+#   puts-step "Installing Distribute ($DISTRIBUTE_VERSION)"
+#   cd $ROOT_DIR/vendor/distribute-$DISTRIBUTE_VERSION/
+#   python setup.py install &> /dev/null
+#   cd $WORKING_DIR
+#
+#   puts-step "Installing Pip ($PIP_VERSION)"
+#   cd $ROOT_DIR/vendor/pip-$PIP_VERSION/
+#   python setup.py install &> /dev/null
+#   cd $WORKING_DIR
+# fi
 
 set -e
 hash -r
 
 # Pylibmc support.
 # See [`bin/steps/pylibmc`](pylibmc.html).
-source $BIN_DIR/steps/pylibmc
+# source $BIN_DIR/steps/pylibmc
 
 # libffi support.
 source $BIN_DIR/steps/libffi
@@ -203,6 +203,7 @@ set-env PATH '$HOME/.heroku/python/bin:/app/vendor/pdf2htmlEX/bin:$PATH'
 # set-env PYTHONHOME /app/.heroku/python
 set-default-env LIBRARY_PATH /app/.heroku/vendor/lib
 set-default-env LD_LIBRARY_PATH /app/.heroku/vendor/lib:/app/vendor/libffi-3.0/lib:/app/vendor/poppler/lib:/app/vendor/fontforge/lib
+echo "set LD path ==============================================================="
 set-default-env LANG en_US.UTF-8
 set-default-env PYTHONHASHSEED random
 set-default-env PYTHONPATH /app/
